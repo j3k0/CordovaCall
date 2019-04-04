@@ -300,11 +300,15 @@ public class CordovaCall extends CordovaPlugin {
     }
 
     protected void getCallPhonePermission() {
+      if (android.os.Build.VERSION.SDK_INT >= 23) {
         cordova.requestPermission(this, CALL_PHONE_REQ_CODE, Manifest.permission.CALL_PHONE);
+      }
     }
 
     protected void callNumberPhonePermission() {
+      if (android.os.Build.VERSION.SDK_INT >= 23) {
         cordova.requestPermission(this, REAL_PHONE_CALL, Manifest.permission.CALL_PHONE);
+      }
     }
 
     private void callNumber() {
